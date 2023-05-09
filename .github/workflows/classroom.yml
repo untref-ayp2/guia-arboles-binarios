@@ -1,0 +1,190 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: TestNewBinaryNode
+      id: testnewbinarynode
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestNewBinaryNode
+        setup-command: ''
+        command: go test ./... -run ^TestNewBinaryNode$
+        timeout: 10
+        max-score: 1
+    - name: TestSize
+      id: testsize
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSize
+        setup-command: ''
+        command: go test ./... -run ^TestSize$
+        timeout: 10
+        max-score: 1
+    - name: TestHeightOnEmptyTree
+      id: testheightonemptytree
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestHeightOnEmptyTree
+        setup-command: ''
+        command: go test ./... -run ^TestHeightOnEmptyTree$
+        timeout: 10
+        max-score: 1
+    - name: TestHeight
+      id: testheight
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestHeight
+        setup-command: ''
+        command: go test ./... -run ^TestHeight$
+        timeout: 10
+        max-score: 1
+    - name: TestChildren
+      id: testchildren
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestChildren
+        setup-command: ''
+        command: go test ./... -run ^TestChildren$
+        timeout: 10
+        max-score: 1
+    - name: TestGetRoot
+      id: testgetroot
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestGetRoot
+        setup-command: ''
+        command: go test ./... -run ^TestGetRoot$
+        timeout: 10
+        max-score: 1
+    - name: TestSizeHeightEmptyDiapo
+      id: testsizeheightemptydiapo
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSizeHeightEmptyDiapo
+        setup-command: ''
+        command: go test ./... -run ^TestSizeHeightEmptyDiapo$
+        timeout: 10
+        max-score: 1
+    - name: TestSizeHeightEmptyOnEmptyTree
+      id: testsizeheightemptyonemptytree
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSizeHeightEmptyOnEmptyTree
+        setup-command: ''
+        command: go test ./... -run ^TestSizeHeightEmptyOnEmptyTree$
+        timeout: 10
+        max-score: 1
+    - name: TestInertsOnEmptyTree
+      id: testinertsonemptytree
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestInertsOnEmptyTree
+        setup-command: ''
+        command: go test ./... -run ^TestInertsOnEmptyTree$
+        timeout: 10
+        max-score: 1
+    - name: TestLadronDeCasasEjemplo1
+      id: testladrondecasasejemplo1
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestLadronDeCasasEjemplo1
+        setup-command: ''
+        command: go test ./... -run ^TestLadronDeCasasEjemplo1$
+        timeout: 10
+        max-score: 1
+    - name: TestLadronDeCasasEjemplo2
+      id: testladrondecasasejemplo2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestLadronDeCasasEjemplo2
+        setup-command: ''
+        command: go test ./... -run ^TestLadronDeCasasEjemplo2$
+        timeout: 10
+        max-score: 1
+    - name: TestSumaPares
+      id: testsumapares
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSumaPares
+        setup-command: ''
+        command: go test ./... -run ^TestSumaPares$
+        timeout: 10
+        max-score: 1
+    - name: TestSumaMayoresQue
+      id: testsumamayoresque
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSumaMayoresQue
+        setup-command: ''
+        command: go test ./... -run ^TestSumaMayoresQue$
+        timeout: 10
+        max-score: 1
+    - name: TestMayorAltura
+      id: testmayoraltura
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestMayorAltura
+        setup-command: ''
+        command: go test ./... -run ^TestMayorAltura$
+        timeout: 10
+        max-score: 1
+    - name: TestSumaHojasIzquierdas
+      id: testsumahojasizquierdas
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSumaHojasIzquierdas
+        setup-command: ''
+        command: go test ./... -run ^TestSumaHojasIzquierdas$
+        timeout: 10
+        max-score: 1
+    - name: TestSumaDerechosImpares
+      id: testsumaderechosimpares
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSumaDerechosImpares
+        setup-command: ''
+        command: go test ./... -run ^TestSumaDerechosImpares$
+        timeout: 10
+        max-score: 1
+    - name: TestRecorrerPorNiveles
+      id: testrecorrerporniveles
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestRecorrerPorNiveles
+        setup-command: ''
+        command: go test ./... -run ^TestRecorrerPorNiveles$
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TESTNEWBINARYNODE_RESULTS: ${{steps.testnewbinarynode.outputs.result}}
+        TESTSIZE_RESULTS: ${{steps.testsize.outputs.result}}
+        TESTHEIGHTONEMPTYTREE_RESULTS: ${{steps.testheightonemptytree.outputs.result}}
+        TESTHEIGHT_RESULTS: ${{steps.testheight.outputs.result}}
+        TESTCHILDREN_RESULTS: ${{steps.testchildren.outputs.result}}
+        TESTGETROOT_RESULTS: ${{steps.testgetroot.outputs.result}}
+        TESTSIZEHEIGHTEMPTYDIAPO_RESULTS: ${{steps.testsizeheightemptydiapo.outputs.result}}
+        TESTSIZEHEIGHTEMPTYONEMPTYTREE_RESULTS: ${{steps.testsizeheightemptyonemptytree.outputs.result}}
+        TESTINERTSONEMPTYTREE_RESULTS: ${{steps.testinertsonemptytree.outputs.result}}
+        TESTLADRONDECASASEJEMPLO1_RESULTS: ${{steps.testladrondecasasejemplo1.outputs.result}}
+        TESTLADRONDECASASEJEMPLO2_RESULTS: ${{steps.testladrondecasasejemplo2.outputs.result}}
+        TESTSUMAPARES_RESULTS: ${{steps.testsumapares.outputs.result}}
+        TESTSUMAMAYORESQUE_RESULTS: ${{steps.testsumamayoresque.outputs.result}}
+        TESTMAYORALTURA_RESULTS: ${{steps.testmayoraltura.outputs.result}}
+        TESTSUMAHOJASIZQUIERDAS_RESULTS: ${{steps.testsumahojasizquierdas.outputs.result}}
+        TESTSUMADERECHOSIMPARES_RESULTS: ${{steps.testsumaderechosimpares.outputs.result}}
+        TESTRECORRERPORNIVELES_RESULTS: ${{steps.testrecorrerporniveles.outputs.result}}
+      with:
+        runners: testnewbinarynode,testsize,testheightonemptytree,testheight,testchildren,testgetroot,testsizeheightemptydiapo,testsizeheightemptyonemptytree,testinertsonemptytree,testladrondecasasejemplo1,testladrondecasasejemplo2,testsumapares,testsumamayoresque,testmayoraltura,testsumahojasizquierdas,testsumaderechosimpares,testrecorrerporniveles
