@@ -40,6 +40,7 @@ func (t *BinaryTree[T]) GetRoot() *BinaryNode[T] {
 }
 
 // InsertLeft inserta del lado izquierdo de la raíz, el árbol que se pasa por parámetro
+// Si el árbol está vacío lo inserta en la raíz
 //
 // Uso:
 //
@@ -54,6 +55,7 @@ func (t *BinaryTree[T]) InsertLeft(bt *BinaryTree[T]) {
 }
 
 // InsertRight inserta del lado derecho de la raíz, el árbol que se pasa por parámetro
+// Si el árbol está vacío lo inserta en la raíz
 //
 // Uso:
 //
