@@ -10,7 +10,7 @@
 
     > 2 + 2 + 6 + 4 =  14
 
-3. Escribir una función recursivo que calcule (y devuelva) la suma de los de nodos cuyo valor es mayor que un $k$ dado, de un árbol binario de enteros. El método debe devolver 0 si el árbol está vacío.
+3. Escribir una función recursivo que calcule (y devuelva) la suma de los nodos cuyo valor es mayor que un $k$ dado, de un árbol binario de enteros. El método debe devolver 0 si el árbol está vacío.
 
     ![Árbol binario de ejemplo](imagenes/arbol-binario.drawio.svg)
 
